@@ -44,11 +44,20 @@ readxl::read_xlsx("mdsf_2022-03-31.xlsx")
 
 # Example - Day care of Children sheet
 
-day_care_children_raw <- readxl::read_xlsx("mdsf_2022-03-31.xlsx",
-                                           range = "Day Care of Children!A9:S64",
-                                           col_names = TRUE)
+data_path <- "mdsf_2022-03-31.xlsx"
+sheet_name <- "Day Care of Children"
+range_data <- "A9:S64"
+range_counts <- 'A34:S34'
 
+day_care_children_raw <-  readxl::read_xlsx(data_path,
+                                            sheet = sheet_name,
+                                            range = range_data,
+                                            col_names = TRUE)
 
+day_care_children_counts <- readxl::read_xlsx(data_path,
+                                              sheet = sheet_name,
+                                              range = range_counts,
+                                              col_names = names(day_care_children_raw))
 ```
 
 
